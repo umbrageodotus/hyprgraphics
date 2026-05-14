@@ -51,6 +51,7 @@ namespace Hyprgraphics::Egl {
         int                                 glType           = 0;
         bool                                withAlpha        = true;
         uint32_t                            alphaStripped    = 0; /* DRM_FORMAT_INVALID */
+        uint32_t                            alphaAdded       = 0; /* DRM_FORMAT_INVALID */
         uint32_t                            bytesPerBlock    = 0;
         Hyprutils::Math::Vector2D           blockSize;
         std::optional<std::array<GLint, 4>> swizzle     = std::nullopt;
