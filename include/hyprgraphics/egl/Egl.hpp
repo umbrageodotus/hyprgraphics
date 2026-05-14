@@ -27,6 +27,16 @@ namespace Hyprgraphics::Egl {
     inline constexpr std::array<GLint, 4> SWIZZLE_RGB1{GL_RED, GL_GREEN, GL_BLUE, GL_ONE};
     inline constexpr std::array<GLint, 4> SWIZZLE_RGBA{GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA};
 
+    enum class EPixelLayout : uint8_t {
+        R,
+        RG,
+        RGB,
+        BGR,
+        RGBA,
+        BGRA,
+        UNKNOWN,
+    };
+
     struct SPixelFormat {
         uint32_t                            drmFormat        = 0; /* DRM_FORMAT_INVALID */
         int                                 glInternalFormat = 0;
@@ -36,7 +46,8 @@ namespace Hyprgraphics::Egl {
         uint32_t                            alphaStripped    = 0; /* DRM_FORMAT_INVALID */
         uint32_t                            bytesPerBlock    = 0;
         Hyprutils::Math::Vector2D           blockSize;
-        std::optional<std::array<GLint, 4>> swizzle = std::nullopt;
+        std::optional<std::array<GLint, 4>> swizzle     = std::nullopt;
+        EPixelLayout                        pixelLayout = EPixelLayout::UNKNOWN;
     };
 
     const SPixelFormat* getPixelFormatFromDRM(uint32_t drmFormat);
@@ -44,4 +55,5 @@ namespace Hyprgraphics::Egl {
     bool                isDrmFormatOpaque(uint32_t drmFormat);
     int                 pixelsPerBlock(const SPixelFormat* const fmt);
     int                 minStride(const SPixelFormat* const fmt, int32_t width);
+    GLenum              getReadbackFormat(const SPixelFormat& fmt);
 }
