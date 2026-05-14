@@ -37,6 +37,13 @@ namespace Hyprgraphics::Egl {
         UNKNOWN,
     };
 
+    struct SFormatBits {
+        uint8_t r = 0;
+        uint8_t g = 0;
+        uint8_t b = 0;
+        uint8_t a = 0;
+    };
+
     struct SPixelFormat {
         uint32_t                            drmFormat        = 0; /* DRM_FORMAT_INVALID */
         int                                 glInternalFormat = 0;
@@ -48,6 +55,7 @@ namespace Hyprgraphics::Egl {
         Hyprutils::Math::Vector2D           blockSize;
         std::optional<std::array<GLint, 4>> swizzle     = std::nullopt;
         EPixelLayout                        pixelLayout = EPixelLayout::UNKNOWN;
+        SFormatBits                         bits;
     };
 
     const SPixelFormat* getPixelFormatFromDRM(uint32_t drmFormat);
@@ -56,4 +64,5 @@ namespace Hyprgraphics::Egl {
     int                 pixelsPerBlock(const SPixelFormat* const fmt);
     int                 minStride(const SPixelFormat* const fmt, int32_t width);
     GLenum              getReadbackFormat(const SPixelFormat& fmt);
+    uint8_t             getColorDepth(const SPixelFormat& fmt);
 }
