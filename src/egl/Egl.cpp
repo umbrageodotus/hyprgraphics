@@ -20,7 +20,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB8888,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_BGRA},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {8, 8, 8, 8},
         },
         {
@@ -32,7 +32,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB8888,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_BGR1},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {8, 8, 8, 0},
         },
         {
@@ -44,7 +44,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR8888,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {8, 8, 8, 0},
         },
         {
@@ -56,7 +56,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR8888,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {8, 8, 8, 8},
         },
         {
@@ -68,7 +68,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_BGR888,
             .bytesPerBlock    = 3,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::BGR,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGR,
             .bits             = {8, 8, 8, 0},
         },
         {
@@ -80,7 +80,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_RGBX4444,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {4, 4, 4, 0},
         },
         {
@@ -92,7 +92,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_RGBX4444,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {4, 4, 4, 4},
         },
         {
@@ -104,7 +104,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_RGBX5551,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {5, 5, 5, 0},
         },
         {
@@ -116,7 +116,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_RGBX5551,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {5, 5, 5, 1},
         },
         {
@@ -128,7 +128,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_RGB565,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGB,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGB,
             .bits             = {5, 6, 5, 0},
         },
         {
@@ -140,7 +140,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR2101010,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGB,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGB,
             .bits             = {10, 10, 10, 0},
         },
         {
@@ -152,7 +152,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR2101010,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {10, 10, 10, 2},
         },
         {
@@ -164,7 +164,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB2101010,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_BGR1},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {10, 10, 10, 0},
         },
         {
@@ -176,7 +176,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB2101010,
             .bytesPerBlock    = 4,
             .swizzle          = {SWIZZLE_BGRA},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {10, 10, 10, 2},
         },
         {
@@ -188,7 +188,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB16161616F,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_BGR1},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {16, 16, 16, 0},
         },
         {
@@ -200,7 +200,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XRGB16161616F,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_BGRA},
-            .pixelLayout      = EPixelLayout::BGRA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_BGRA,
             .bits             = {16, 16, 16, 16},
         },
         {
@@ -212,7 +212,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR16161616F,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_RGB1},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {16, 16, 16, 0},
         },
         {
@@ -224,7 +224,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR16161616F,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {16, 16, 16, 16},
         },
         {
@@ -236,7 +236,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR16161616,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {16, 16, 16, 0},
         },
         {
@@ -248,7 +248,7 @@ namespace Hyprgraphics::Egl {
             .alphaStripped    = DRM_FORMAT_XBGR16161616,
             .bytesPerBlock    = 8,
             .swizzle          = {SWIZZLE_RGBA},
-            .pixelLayout      = EPixelLayout::RGBA,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGBA,
             .bits             = {16, 16, 16, 16},
         },
         {
@@ -268,7 +268,7 @@ namespace Hyprgraphics::Egl {
             .glType           = GL_UNSIGNED_BYTE,
             .bytesPerBlock    = 1,
             .swizzle          = {SWIZZLE_R001},
-            .pixelLayout      = EPixelLayout::R,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_R,
             .bits             = {8, 0, 0, 0},
         },
         {
@@ -278,7 +278,7 @@ namespace Hyprgraphics::Egl {
             .glType           = GL_UNSIGNED_BYTE,
             .bytesPerBlock    = 2,
             .swizzle          = {SWIZZLE_RG01},
-            .pixelLayout      = EPixelLayout::RG,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RG,
             .bits             = {8, 8, 0, 0},
         },
         {
@@ -288,7 +288,7 @@ namespace Hyprgraphics::Egl {
             .glType           = GL_UNSIGNED_BYTE,
             .bytesPerBlock    = 3,
             .swizzle          = {SWIZZLE_BGR1},
-            .pixelLayout      = EPixelLayout::RGB,
+            .pixelLayout      = EPixelLayout::PIXEL_LAYOUT_RGB,
             .bits             = {8, 8, 8, 0},
         },
     };
@@ -329,17 +329,17 @@ namespace Hyprgraphics::Egl {
 
     GLenum getReadbackFormat(const SPixelFormat& fmt) {
         switch (fmt.pixelLayout) {
-            case EPixelLayout::RGBA: return GL_RGBA;
+            case EPixelLayout::PIXEL_LAYOUT_RGBA: return GL_RGBA;
 
-            case EPixelLayout::BGRA: return GL_BGRA_EXT;
+            case EPixelLayout::PIXEL_LAYOUT_BGRA: return GL_BGRA_EXT;
 
-            case EPixelLayout::RGB: return GL_RGB;
+            case EPixelLayout::PIXEL_LAYOUT_RGB: return GL_RGB;
 
-            case EPixelLayout::BGR: return GL_BGR_EXT;
+            case EPixelLayout::PIXEL_LAYOUT_BGR: return GL_BGR_EXT;
 
-            case EPixelLayout::RG: return GL_RG;
+            case EPixelLayout::PIXEL_LAYOUT_RG: return GL_RG;
 
-            case EPixelLayout::R: return GL_RED;
+            case EPixelLayout::PIXEL_LAYOUT_R: return GL_RED;
 
             default: return GL_RGBA;
         }

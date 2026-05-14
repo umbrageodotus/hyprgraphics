@@ -28,13 +28,13 @@ namespace Hyprgraphics::Egl {
     inline constexpr std::array<GLint, 4> SWIZZLE_RGBA{GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA};
 
     enum class EPixelLayout : uint8_t {
-        R,
-        RG,
-        RGB,
-        BGR,
-        RGBA,
-        BGRA,
-        UNKNOWN,
+        PIXEL_LAYOUT_R,
+        PIXEL_LAYOUT_RG,
+        PIXEL_LAYOUT_RGB,
+        PIXEL_LAYOUT_BGR,
+        PIXEL_LAYOUT_RGBA,
+        PIXEL_LAYOUT_BGRA,
+        PIXEL_LAYOUT_UNKNOWN,
     };
 
     struct SFormatBits {
@@ -54,7 +54,7 @@ namespace Hyprgraphics::Egl {
         uint32_t                            bytesPerBlock    = 0;
         Hyprutils::Math::Vector2D           blockSize;
         std::optional<std::array<GLint, 4>> swizzle     = std::nullopt;
-        EPixelLayout                        pixelLayout = EPixelLayout::UNKNOWN;
+        EPixelLayout                        pixelLayout = EPixelLayout::PIXEL_LAYOUT_UNKNOWN;
         SFormatBits                         bits;
     };
 
