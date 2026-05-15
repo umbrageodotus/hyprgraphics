@@ -33,6 +33,7 @@ namespace Hyprgraphics::Egl {
         PIXEL_LAYOUT_RGB,
         PIXEL_LAYOUT_BGR,
         PIXEL_LAYOUT_RGBA,
+        PIXEL_LAYOUT_RGBA_I,
         PIXEL_LAYOUT_BGRA,
         PIXEL_LAYOUT_UNKNOWN,
     };
