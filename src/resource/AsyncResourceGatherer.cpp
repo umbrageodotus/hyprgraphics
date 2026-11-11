@@ -16,7 +16,10 @@ CAsyncResourceGatherer::~CAsyncResourceGatherer() {
 }
 
 void CAsyncResourceGatherer::wakeUpMainThread() {
-    m_asyncLoopState.needsToProcess = true;
+    {
+        std::lock_guard<std::mutex> lg(m_asyncLoopState.requestMutex);
+        m_asyncLoopState.needsToProcess = true;
+    }
     m_asyncLoopState.requestsCV.notify_all();
 }
 
@@ -30,8 +33,10 @@ void CAsyncResourceGatherer::enqueue(Hyprutils::Memory::CAtomicSharedPointer<IAs
 }
 
 void CAsyncResourceGatherer::await(Hyprutils::Memory::CAtomicSharedPointer<IAsyncResource> resource) {
-    resource->m_impl->awaitingCv = Hyprutils::Memory::makeUnique<std::condition_variable>();
     std::unique_lock<std::mutex> lk(resource->m_impl->awaitingMtx);
+    if (resource->m_impl->awaitingEvent)
+        return;
+    resource->m_impl->awaitingCv = Hyprutils::Memory::makeUnique<std::condition_variable>();
     resource->m_impl->awaitingCv->wait(lk, [&resource] { return resource->m_impl->awaitingEvent; });
     resource->m_impl->awaitingCv.reset();
 }
@@ -64,9 +69,11 @@ void CAsyncResourceGatherer::asyncAssetSpinLock() {
         for (auto& r : requests) {
             r->render();
 
-            if (r->m_impl->awaitingCv) {
+            {
+                std::lock_guard<std::mutex> lg(r->m_impl->awaitingMtx);
                 r->m_impl->awaitingEvent = true;
-                r->m_impl->awaitingCv->notify_all();
+                if (r->m_impl->awaitingCv)
+                    r->m_impl->awaitingCv->notify_all();
             }
             r->m_ready = true;
             r->m_events.finished.emit();
